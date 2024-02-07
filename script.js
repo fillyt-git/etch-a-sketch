@@ -4,6 +4,16 @@ let gridDivs = [];
 let gridRowDivs = [];
 let allRows;
 let allSquares;
+let myColor = Math.floor(Math.random() * 361);
+function newColor () {
+    if (myColor < 360) {
+        myColor += 1;
+        return myColor;
+    } else {
+        myColor -= 360;
+        return myColor;
+    };
+};
 
 function setGrid (count) {
     for (let i = 0; i < count; i++) {
@@ -26,7 +36,8 @@ function setGrid (count) {
 
     allSquares.forEach((square) => {
         square.addEventListener('mouseover', (e) => {
-            e.target.style.cssText = 'background-color: white;';
+            e.target.style.cssText =
+                `background-color: hsl(${newColor()}, 100%, 50%);`;
         });
     });
 };
