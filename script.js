@@ -5,7 +5,6 @@ let gridRowDivs = [];
 let allRows;
 let allSquares;
 
-
 function setGrid (count) {
     for (let i = 0; i < count; i++) {
         gridRowDivs.push(document.createElement('div'));
@@ -50,6 +49,5 @@ gridCount.addEventListener('click', () => {
         count = prompt('How many squares per side? (Limit: 100)', 16) || count;
     };
     clearGrid();
-    console.log(gridDivs);
     setGrid(count);
 });
