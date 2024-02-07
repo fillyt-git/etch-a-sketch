@@ -1,71 +1,26 @@
+/* const gridCount = 16; */
 const mainContainer = document.querySelector('#mainContainer');
-
-/* const gridCount = . . . */
-/* const gridRow = []; */
-/* for (let i = 0; i < 16; i++) { 
-    for (let j = 0; j < 16; i++) {
-        gridRow[i].push(document.createElement(`div-${j}`));
-         */
-    
-
-
 const gridDivs = [];
-const gridRowDivs = []
+const gridRowDivs = [];
 
 for (let i = 0; i < 16; i++) {
-    gridRowDivs.push(document.createElement(`rowDiv-${i}`));
+    gridRowDivs.push(document.createElement('div'));
+    gridRowDivs[i].classList.add('row');
+    gridRowDivs[i].setAttribute('id', `row-${i}`);
     mainContainer.appendChild(gridRowDivs[i]);
-};
 
-for (let i = 0; i < 16; i++) {
     gridDivs[i] = [];
         for (j = 0; j < 16; j++) {
-            gridDivs[i].push(document.createElement(`div-${i}-${j}`));
+            gridDivs[i].push(document.createElement('div'));
+            gridDivs[i][j].classList.add('square');
+            gridDivs[i][j].setAttribute('id', `square-${i}-${j}`);
             gridRowDivs[i].appendChild(gridDivs[i][j]);
         };
 };
 
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-/*     .push(document.createElement(`row-${i}`));
-    mainContainer.appendChild(gridRow[i]);
-}; */
-
-/* const gridCol = []
-
-for (let j = 0; j < 0; i++) {
-    for (let i = 0; i < 16; i++) {
-        gridCol.push(document.createElement(`col-${i}`));
-        gridRow[j].appendChild(gridCol[i]);
-    };
-};
- */
-
-console.log(gridDivs);
-
-/* const a = []
-
-for (i = 0; i < 16; i++) {
-
-    a[i] = [];
-
-    for (j = 0; j < 16; j++) {
-
-        a[i].push(j);
-
-    };
-};
-
-console.log(a); */
+const allSquares = document.querySelectorAll('.square');
+allSquares.forEach((square) => {
+    square.addEventListener('mouseover', (e) => {
+        e.target.style.cssText = 'background-color: white;';
+    });
+});
